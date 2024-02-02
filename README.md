@@ -12,9 +12,48 @@ See this repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azu
 
 ## 3. Create the project folders structure
 
+We create two new folders: **Config** and **Kafka**
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/9ad5e672-b90f-423a-b4e3-56f3a396a870)
+
+We create two new files: **AppConfig.cs** and **KafkaProducer.cs**
 
 ## 4. Create the KafkaProducer.cs
 
+```csharp
+using Confluent.Kafka;
+
+namespace AzureSQLWebAPIMicroservice.Kafka
+{
+    public class KafkaProducer
+    {
+        private readonly ProducerConfig _config;
+        private readonly string _topic;
+
+        public KafkaProducer(string bootstrapServers, string topic)
+        {
+            _config = new ProducerConfig { BootstrapServers = bootstrapServers };
+            _topic = topic;
+        }
+
+        public async Task SendMessageAsync(string key, string message)
+        {
+            using (var producer = new ProducerBuilder<string, string>(_config).Build())
+            {
+                try
+                {
+                    var result = await producer.ProduceAsync(_topic, new Message<string, string> { Key = key, Value = message });
+                    Console.WriteLine($"Message sent to partition {result.Partition} with offset {result.Offset}");
+                }
+                catch (ProduceException<string, string> e)
+                {
+                    Console.WriteLine($"Error producing message: {e.Error.Reason}");
+                }
+            }
+        }
+    }
+}
+```
 
 ## 5. Create the AppConfig.cs
 
