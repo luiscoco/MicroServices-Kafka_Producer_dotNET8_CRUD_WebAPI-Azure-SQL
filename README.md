@@ -46,9 +46,21 @@ In another command prompt window we **run Kafka server**
 kafka-server-start C:\kafka_2.13-3.6.1\config\server.properties
 ```
 
-We creata producer
+We **create a topic**
 
-We create
+```
+kafka-topics --create --partitions 1 --replication-factor 1 --topic test --bootstrap-server localhost:9092
+```
+
+We **creata a producer**
+
+```
+kafka-server-start C:\kafka_2.13-3.6.1\config\server.properties
+```
+
+We **create a consumer**
+
+
 
 ### 1.2. Create Azure SQL database
 
