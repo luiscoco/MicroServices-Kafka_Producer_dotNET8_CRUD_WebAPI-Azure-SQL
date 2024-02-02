@@ -2,15 +2,26 @@
 
 ## 1. Prerequisite
 
+### 1.1. Kafka installation
+
 Install Kafka in you window laptop
 
 Run and Test Kafka
+
+### 1.2. Create Azure SQL database
+
+See section 1 in this repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL
 
 ## 2. Create .NET8 CRUD WebAPI Azure-SQL Microservice
 
 See this repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL
 
-## 3. Create the project folders structure
+## 3. Load the 
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/25d953aa-c8ee-4b48-8525-efd257568f04)
+
+
+## 4. Create the project folders structure
 
 We create two new folders: **Config** and **Kafka**
 
@@ -18,7 +29,7 @@ We create two new folders: **Config** and **Kafka**
 
 We create two new files: **AppConfig.cs** and **KafkaProducer.cs**
 
-## 4. Create the KafkaProducer.cs
+## 5. Create the KafkaProducer.cs
 
 ```csharp
 using Confluent.Kafka;
@@ -55,7 +66,7 @@ namespace AzureSQLWebAPIMicroservice.Kafka
 }
 ```
 
-## 5. Create the AppConfig.cs
+## 6. Create the AppConfig.cs
 
 ```csharp
 namespace AzureSQLWebAPIMicroservice.Config
@@ -68,7 +79,7 @@ namespace AzureSQLWebAPIMicroservice.Config
 }
 ```
 
-## 6. Modify the appsettings.json
+## 7. Modify the appsettings.json
 
 ```json
 {
@@ -89,7 +100,7 @@ namespace AzureSQLWebAPIMicroservice.Config
 }
 ```
 
-## 7. Modify the program.cs (middleware)
+## 8. Modify the program.cs (middleware)
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -137,4 +148,7 @@ app.MapControllers();
 app.Run();
 ```
 
+## 9. Initialize the database
 
+
+## 10. 
