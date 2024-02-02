@@ -235,4 +235,82 @@ In the AzureSQLWebAPIMicroservice.csproj set InvariantGlobalization to false
 
 ## 11. Run and test the application
 
+We build and run the application in Visual Studio 2022 Community Edition
+
+We access to the API docs: https://localhost:7217/swagger/index.html
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/5b1d8ad0-a3bf-4ed2-840e-da33b5ccaf7e)
+
+We send a **GET** request and we receive the correct response with 200 code
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/e2c6814b-9b52-4b89-8991-a1558ab78d54)
+
+Now we send a **POST** request to insert a new item in the database
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/4a5ba62a-e850-42e0-833b-8b099f92c874)
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/d4a705b3-924c-42c7-82a9-5856dc36c461)
+
+We can also verify the consumer kafka console receive the new item created message
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/3b397833-df37-4b71-ac1f-9548e63a9afd)
+
+In this sample we modified the CRUD methods (Create, Update and Delete) to send a kafka message 
+
+**ExampleModelService.cs**
+
+```csharp
+...
+// Create
+public async Task<ExampleModel> AddExampleModel(ExampleModel model)
+{
+    _context.ExampleModels.Add(model);
+    await _context.SaveChangesAsync();
+
+    // Send Kafka message
+    await _kafkaProducer.SendMessageAsync("create", JsonConvert.SerializeObject(model));
+
+    return model;
+}
+...
+// Update
+public async Task<ExampleModel> UpdateExampleModel(int id, ExampleModel model)
+{
+    var existingModel = await _context.ExampleModels.FirstOrDefaultAsync(e => e.Id == id);
+    if (existingModel == null)
+    {
+        return null;
+    }
+
+    existingModel.Name = model.Name;
+    // Update other properties as necessary
+
+    _context.Entry(existingModel).State = EntityState.Modified;
+    await _context.SaveChangesAsync();
+
+    // Send Kafka message
+    await _kafkaProducer.SendMessageAsync("update", JsonConvert.SerializeObject(existingModel));
+
+    return existingModel;
+}
+
+// Delete
+public async Task<bool> DeleteExampleModel(int id)
+{
+    var model = await _context.ExampleModels.FindAsync(id);
+    if (model == null)
+    {
+        return false;
+    }
+
+    _context.ExampleModels.Remove(model);
+    await _context.SaveChangesAsync();
+
+    // Send Kafka message
+    await _kafkaProducer.SendMessageAsync("delete", JsonConvert.SerializeObject(new { Id = id }));
+
+    return true;
+}
+...
+```
 
