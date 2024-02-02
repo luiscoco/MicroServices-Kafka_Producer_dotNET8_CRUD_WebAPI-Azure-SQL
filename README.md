@@ -16,10 +16,9 @@ See section 1 in this repo: https://github.com/luiscoco/MicroServices_dotNET8_CR
 
 See this repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL
 
-## 3. Load the 
+## 3. Load the project dependencies
 
 ![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/25d953aa-c8ee-4b48-8525-efd257568f04)
-
 
 ## 4. Create the project folders structure
 
@@ -150,5 +149,18 @@ app.Run();
 
 ## 9. Initialize the database
 
+Add/create first migration with this command:
 
-## 10. 
+```
+dotnet ef migrations add InitialCreate
+```
+
+Also update the database with this command
+
+```
+dotnet ef database update
+```
+
+## 10. Run and test the application
+
+
