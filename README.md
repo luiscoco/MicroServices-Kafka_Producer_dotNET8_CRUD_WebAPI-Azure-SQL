@@ -55,12 +55,14 @@ kafka-topics --create --partitions 1 --replication-factor 1 --topic test --boots
 We **creata a producer**
 
 ```
-kafka-server-start C:\kafka_2.13-3.6.1\config\server.properties
+kafka-console-producer --topic test --bootstrap-server localhost:9092
 ```
 
 We **create a consumer**
 
-
+```
+kafka-console-consumer.bat --topic test --from-beginning --bootstrap-server localhost:9092
+```
 
 ### 1.2. Create Azure SQL database
 
