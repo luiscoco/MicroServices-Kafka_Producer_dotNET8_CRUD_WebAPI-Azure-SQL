@@ -161,6 +161,14 @@ Also update the database with this command
 dotnet ef database update
 ```
 
-## 10. Run and test the application
+## 10. Review the project file and set InvariantGlobalization to false
+
+In the AzureSQLWebAPIMicroservice.csproj set InvariantGlobalization to false
+
+```
+<InvariantGlobalization>false</InvariantGlobalization>
+```
+
+## 11. Run and test the application
 
 
