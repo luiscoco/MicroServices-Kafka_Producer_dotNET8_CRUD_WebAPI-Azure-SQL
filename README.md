@@ -26,6 +26,12 @@ We create add the **C:\kafka_2.13-3.6.1\bin\windows** in the **PATH** environmen
 advertised.listeners=PLAINTEXT://localhost:9092
 ```
 
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/fa9f4aaa-6b5e-4d4e-8465-7768d5008d52)
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/fb8e761d-57fb-4044-914e-39d1233e9a4c)
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/64cd9941-54a3-4456-afca-a9eff0e24b0c)
+
 Run and Test Kafka
 
 In a command prompt window we first **run Zookeper** 
