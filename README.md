@@ -4,9 +4,35 @@
 
 ### 1.1. Kafka installation
 
-Install Kafka in you window laptop
+Download Kafka (**kafka_2.13-3.6.1.tgz**) from Apache web page: https://kafka.apache.org/downloads
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/3a9121f2-9fe7-4a1f-a386-e91d288dfb94)
+
+We uncompress the **kafka_2.13-3.6.1.tgz** and copy the folder in the C:/
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/79cf7efe-6c7f-4be9-925e-02bbad5c3ee1)
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/c71fde3b-fa3f-4118-9378-a1f0b36f4fbd)
+
+We create add the **C:\kafka_2.13-3.6.1\bin\windows** in the **PATH** environmental variable
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/e2bd5826-a890-451c-a4ae-aaa89fb2dc4c)
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/e072ba06-e055-406b-abf4-1d5e0062b0bb)
+
+We set the **BootstrapServers** as **localhost:9092**
+
+
 
 Run and Test Kafka
+
+In a command prompt window we first **run Zookeper** 
+
+In another command prompt window we **run Kafka**
+
+We creata producer
+
+We create
 
 ### 1.2. Create Azure SQL database
 
