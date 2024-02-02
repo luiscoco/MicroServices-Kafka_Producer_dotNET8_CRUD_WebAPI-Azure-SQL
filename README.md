@@ -64,6 +64,14 @@ We **create a consumer**
 kafka-console-consumer.bat --topic test --from-beginning --bootstrap-server localhost:9092
 ```
 
+We input a message in the Producer prompt and we get it in the consumer prompt, see this picture
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/e3524cac-6602-4705-817e-edbc966a68d1)
+
+**IMPORTANT NOTE**: in case you you get an error when you run the Kafka server go to the C:/tmp directore and **delete** the subdirectories **kafka-logs** and **zookeeper**
+
+![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/a2fdb38c-8d30-48e5-bfd2-dacb751709f5)
+
 ### 1.2. Create Azure SQL database
 
 See section 1 in this repo: https://github.com/luiscoco/MicroServices_dotNET8_CRUD_WebAPI-Azure-SQL
