@@ -20,15 +20,25 @@ We create add the **C:\kafka_2.13-3.6.1\bin\windows** in the **PATH** environmen
 
 ![image](https://github.com/luiscoco/MicroServices-Kafka_dotNET8_CRUD_WebAPI-Azure-SQL/assets/32194879/e072ba06-e055-406b-abf4-1d5e0062b0bb)
 
-We set the **BootstrapServers** as **localhost:9092**
+**VERY IMPORTANT:** Set the **bootstrap_server** in the **server.properties** file
 
-
+```
+advertised.listeners=PLAINTEXT://localhost:9092
+```
 
 Run and Test Kafka
 
 In a command prompt window we first **run Zookeper** 
 
-In another command prompt window we **run Kafka**
+```
+zookeeper-server-start C:\kafka_2.13-3.6.1\config\zookeeper.properties
+```
+
+In another command prompt window we **run Kafka server**
+
+```
+kafka-server-start C:\kafka_2.13-3.6.1\config\server.properties
+```
 
 We creata producer
 
